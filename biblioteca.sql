@@ -152,7 +152,7 @@ FROM libros
 WHERE numero_paginas < 300;
 
 -- b. Mostrar todos los autores que hayan nacido después del 01-01-1970.
-SELECT  nombre, apellido
+SELECT  nombre, apellido, fecha_nacimiento
 FROM autor
 WHERE fecha_nacimiento >= 1970;
 
@@ -165,4 +165,5 @@ FROM prestamos INNER JOIN libros ON prestamos.isbn = libros.isbn GROUP BY titulo
 
 SELECT nombre, ((fecha_devolucion - fecha_inicio)-7) * 100 AS deuda
 FROM socios INNER JOIN prestamos ON socios.rut = prestamos.rut_socio
-WHERE (fecha_devolucion - fecha_inicio) > 7;
+WHERE (fecha_devolucion - fecha_inicio) > 7
+ORDER BY deuda DESC;
