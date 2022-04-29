@@ -166,8 +166,3 @@ FROM prestamos INNER JOIN libros ON prestamos.isbn = libros.isbn GROUP BY titulo
 SELECT nombre, ((fecha_devolucion - fecha_inicio)-7) * 100 AS deuda
 FROM socios INNER JOIN prestamos ON socios.rut = prestamos.rut_socio
 WHERE (fecha_devolucion - fecha_inicio) > 7;
-
-
--- SELECT nombre, ((fecha_devolucion - fecha_inicio)-7)*100 as deuda
--- FROM socios INNER JOIN prestamos ON socios.rut = prestamos.rut_socio
--- where case when (fecha_devolucion - fecha_inicio) > 7 then ((fecha_devolucion - fecha_inicio) - 7) * 100 else 0 end > 0;
